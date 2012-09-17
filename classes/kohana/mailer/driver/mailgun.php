@@ -15,6 +15,8 @@ class Kohana_Mailer_Driver_Mailgun implements Mailer_Driver {
 		foreach ($mailer->formats as $format) {
 			$fields[$format] = $mailer->content[$format];
 		}
+		
+		if (isset($mailer->campaign)) { $fields['o:campaign'] = $mailer->campaign; } // allows for campaign tracking
 
 		// Build curl request.
 		$ch = curl_init($url);
