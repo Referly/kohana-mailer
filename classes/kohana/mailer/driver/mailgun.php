@@ -118,7 +118,7 @@ class Kohana_Mailer_Driver_Mailgun implements Mailer_Driver {
 		# Success!
 		if ($http_code == 200) {
 			$data = json_decode($response);
-			Kohana::$log->add(Log::INFO, 'Successfully resubscribed :email via Mailgun HTTP API.', array(':email' => $email));
+			Kohana::$log->add(Log::INFO, 'Successfully resubscribed :email via Mailgun HTTP API.', array(':email' => $address));
 		}
 		else {
 			Kohana::$log->add(Log::ERROR, 'Error resubscribing via mailgun. Details: :details', array(':details' => print_r($response, TRUE)));
