@@ -144,6 +144,15 @@ abstract class Kohana_Mailer {
 		}
 	}
 	
+	public function unsubscribe($address, $options) {
+		$this->driver->unsubscribe($address, $options);
+	}
+	
+	public function resubscribe($address) {
+		$this->driver->resubscribe($address);
+	}
+	
+	
 	/**
 	 * Helper function to properly set files for autoloading.
 	 */
