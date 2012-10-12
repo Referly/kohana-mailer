@@ -17,7 +17,7 @@ class Kohana_Mailer_Driver_Mailgun implements Mailer_Driver {
 		}
 		
 		if (isset($mailer->campaign)) { $fields['o:campaign'] = $mailer->campaign; } // allows for campaign tracking
-		if (isset($mailer->campaign)) { $fields['o:tag'] = $mailer->tag; } // allows for tagging (needed for unsubscribe)
+		if (isset($mailer->tag)) { $fields['o:tag'] = $mailer->tag; } // allows for tagging (needed for unsubscribe)
 
 		// Build curl request.
 		$ch = curl_init($url);
