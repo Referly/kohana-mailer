@@ -3,7 +3,6 @@
 class Kohana_Mailer_Driver_Mailgun implements Mailer_Driver {
 	
 	public function deliver(Mailer $mailer, $options = array()) {
-		Kohana::$log->add(Log::INFO, 'Sending email via mailgun email driver. Email details: :mailer', array(':mailer' => print_r($mailer, TRUE)));
 		$url = $options['url'];
 		$apikey = $options['apikey'];
 
@@ -42,10 +41,8 @@ class Kohana_Mailer_Driver_Mailgun implements Mailer_Driver {
 		# Success!
 		if ($http_code == 200) {
 			$data = json_decode($response);
-			Kohana::$log->add(Log::INFO, 'Successfully sent ":name" email to :to via Mailgun HTTP API.', array(':name' => $mailer->name, ':to' => $mailer->to));
 		}
 		else {
-			Kohana::$log->add(Log::ERROR, 'Error sending email via mailgun. Details: :details', array(':details' => print_r($response, TRUE)));
 		}
 	}
 	
